@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Code IDE</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <style>
+        .container {
+            width: 100%;
+            max-width: 100vh;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* css for a minimal blue scrollbar*/
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgb(12, 102, 147);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(26, 130, 168);
+        }
+
+        /* css for the editor */
+
+        .editor {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+
+        /* css for the header */
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .header .logo {
+            font-size: 25px;
+            font-weight: 500;
+        }
+
+        .header .logo span {
+            color: #ff6b81;
+        }
+
+        .header .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="row">
+                <!--Set a navbar with dropdown menu items-->
+                <nav>
+                    <div class="one-half column">
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <a href="#" class="menu-link"><strong class="logo">Code IDE</strong></a>
+                            </li>
+                            <li class="menu-item">
+                                <details role="list">
+                                    <summary aria-haspopup="listbox">File</summary>
+                                    <ul role="listbox">
+                                        <li class="menu-item">
+                                            <a href="#" class="menu-link">New</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="#" class="menu-link">Open</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="#" class="menu-link">Save</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="#" class="menu-link">Save As</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="#" class="menu-link">Exit</a>
+                                        </li>
+                                    </ul>
+                                </details>
+                            </li>
+                            <li class="menu-item">
+                                <details role="list">
+                                    <summary aria-haspopup="listbox">Actions</summary>
+                                    <ul class="menu">
+                                        <li class="menu-item">
+                                            <a href="#" class="menu-link">Undo</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="#" class="menu-link">Redo</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="#" class="menu-link">Cut</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="#" class="menu-link">Copy</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="#" class="menu-link">Paste</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="#" class="menu-link">Select All</a>
+                                        </li>
+                                    </ul>
+                                </details>
+                            </li>
+                            <li class="menu-item">
+                                <details role="list">
+                                    <summary aria-haspopup="listbox">Themes</summary>
+                                    <ul role="listbox">
+                                        <li class="menu-item">
+                                            <a href="#" class="menu-link">Atom Dark</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="#" class="menu-link">Atom Light</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="#" class="menu-link">Monokai</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="#" class="menu-link">Solarized Dark</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="#" class="menu-link">Solarized Light</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="#" class="menu-link">Twilight</a>
+                                        </li>
+                                    </ul>
+                                </details>
+                            </li>
+                            <li class="menu-item">
+                                <details role="list">
+                                        <summary aria-haspopup="listbox">Font</summary>
+                                            <ul role="listbox">
+                                                <li class="menu-item">
+                                                    <a href="#" class="menu-link">10</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="#" class="menu-link">12</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="#" class="menu-link">14</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="#" class="menu-link">16</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="#" class="menu-link">18</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="#" class="menu-link">20</a>
+                                                </li>
+                                            </ul>
+                                </details>
+                            </li>
+                            <li>
+                                        <ul role="menu">
+                                            <li class="banner">
+                                                <button class="outline">Run</button>
+                                            </li>
+                                            <li class="banner">
+                                                <button class="outline">Help</button>
+                                            </li>
+                                        </ul>
+                            </li>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </nav>
+    <!--Coding file space with flexible boundaries-->
+    <form action="index.html" method="post">
+        <div class="container-fluid">
+            <div class="editor">
+                <div class="one-half column">
+                    <textarea name="code" id="code" cols="30" rows="10" class="u-full-width" placeholder="Enter your code here"></textarea>
+                </div>
+                <div class="one-half column">
+                    <textarea name="output" id="output" cols="15" rows="10" class="u-full-width" placeholder="Output"></textarea>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
